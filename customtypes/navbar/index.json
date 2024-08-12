@@ -1,0 +1,106 @@
+{
+  "format": "custom",
+  "id": "navbar",
+  "label": "Navbar",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_title": {
+        "type": "Text",
+        "config": {
+          "label": "logo title",
+          "placeholder": ""
+        }
+      },
+      "logo_url": {
+        "type": "Link",
+        "config": {
+          "label": "logo url",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "navlist": {
+        "type": "Group",
+        "config": {
+          "label": "navlist",
+          "repeat": true,
+          "fields": {
+            "link_title": {
+              "type": "Text",
+              "config": {
+                "label": "link title",
+                "placeholder": ""
+              }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "url",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "tel_icon": {
+        "type": "Image",
+        "config": {
+          "label": "tel icon",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "tel": {
+        "type": "Text",
+        "config": {
+          "label": "tel",
+          "placeholder": ""
+        }
+      },
+      "btn": {
+        "type": "Group",
+        "config": {
+          "label": "btn",
+          "repeat": false,
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "title",
+                "placeholder": ""
+              }
+            },
+            "black_bg": {
+              "type": "Boolean",
+              "config": {
+                "label": "black bg",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "url",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

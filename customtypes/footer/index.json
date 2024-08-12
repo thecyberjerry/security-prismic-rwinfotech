@@ -1,0 +1,109 @@
+{
+  "format": "custom",
+  "id": "footer",
+  "label": "Footer",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "cta_img": {
+        "type": "Image",
+        "config": {
+          "label": "cta img",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "cta_title": {
+        "type": "Text",
+        "config": {
+          "label": "cta title",
+          "placeholder": ""
+        }
+      },
+      "btn": {
+        "type": "Group",
+        "config": {
+          "label": "btn",
+          "repeat": false,
+          "fields": {
+            "title": {
+              "type": "Text",
+              "config": {
+                "label": "title",
+                "placeholder": ""
+              }
+            },
+            "black_bg": {
+              "type": "Boolean",
+              "config": {
+                "label": "black_bg",
+                "default_value": false,
+                "placeholder_true": "true",
+                "placeholder_false": "false"
+              }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "url",
+                "placeholder": "",
+                "select": null
+              }
+            }
+          }
+        }
+      },
+      "logo": {
+        "type": "Image",
+        "config": {
+          "label": "logo",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "logo_title": {
+        "type": "Text",
+        "config": {
+          "label": "logo title",
+          "placeholder": ""
+        }
+      },
+      "footer_description": {
+        "type": "Text",
+        "config": {
+          "label": "footer description",
+          "placeholder": ""
+        }
+      },
+      "cta_title_color": {
+        "type": "Boolean",
+        "config": {
+          "label": "cta title color",
+          "placeholder_false": "Black",
+          "placeholder_true": "White",
+          "default_value": true
+        }
+      },
+      "logo_url": {
+        "type": "Link",
+        "config": {
+          "label": "logo url",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "footer_list": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.heading {
+  &__white {
+    color: $clr--secondary;
+  }
+
+  &__default {
+    color: $clr--secondary-x-dark;
+  }
+}

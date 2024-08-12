@@ -1,0 +1,119 @@
+{
+  "id": "contact_us",
+  "type": "SharedSlice",
+  "name": "ContactUs",
+  "description": "ContactUs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Group",
+          "config": {
+            "label": "heading",
+            "repeat": false,
+            "fields": {
+              "first": {
+                "type": "Text",
+                "config": {
+                  "label": "first",
+                  "placeholder": ""
+                }
+              },
+              "second": {
+                "type": "Text",
+                "config": {
+                  "label": "second",
+                  "placeholder": ""
+                }
+              },
+              "reverse": {
+                "type": "Boolean",
+                "config": {
+                  "label": "reverse",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              }
+            }
+          }
+        },
+        "plcholder_first": {
+          "type": "Text",
+          "config": {
+            "label": "plcholder_first",
+            "placeholder": ""
+          }
+        },
+        "plcholder_second": {
+          "type": "Text",
+          "config": {
+            "label": "plcholder_second",
+            "placeholder": ""
+          }
+        },
+        "plcholder_email": {
+          "type": "Text",
+          "config": {
+            "label": "plcholder_email",
+            "placeholder": ""
+          }
+        },
+        "plcholder_phone": {
+          "type": "Text",
+          "config": {
+            "label": "plcholder_phone",
+            "placeholder": ""
+          }
+        },
+        "plcholder_msg": {
+          "type": "Text",
+          "config": {
+            "label": "plcholder_msg",
+            "placeholder": ""
+          }
+        },
+        "btn": {
+          "type": "Group",
+          "config": {
+            "label": "btn",
+            "repeat": false,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "black_bg": {
+                "type": "Boolean",
+                "config": {
+                  "label": "black_bg",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "url",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

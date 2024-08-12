@@ -1,0 +1,121 @@
+h1 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-x-bold;
+  font-size: $font-size-10;
+}
+
+h2 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-x-bold;
+  font-size: $font-size-9;
+}
+
+h3 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-x-bold;
+  font-size: $font-size-8;
+}
+
+h4 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-medium;
+  font-size: $font-size-7;
+}
+
+h5 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-medium;
+  font-size: $font-size-6;
+}
+
+h6 {
+  font-family: $font--secondary;
+  font-weight: $font--weight-bold;
+  font-size: $font-size-6;
+}
+
+p {
+  font-family: $font--tertiary;
+  font-weight: $font--weight-normal;
+  font-size: $font-size-5;
+}
+
+li {
+  font-family: $font--tertiary;
+  font-size: $font-size-4;
+}
+
+input {
+  padding: 1rem;
+  font-family: $font--tertiary;
+  font-weight: $font--weight-normal;
+  font-size: $font-size-5;
+  color: $clr--secondary-x-dark;
+  border-radius: 0.2rem;
+}
+
+textarea {
+  border-radius: 0.2rem;
+  padding: 1rem;
+  font-family: $font--tertiary;
+  font-weight: $font--weight-normal;
+  font-size: $font-size-5;
+  color: $clr--secondary-x-dark;
+  resize: none;
+}
+
+::placeholder {
+  color: $clr--secondary-x-dark;
+  opacity: 1;
+}
+
+button {
+  font-family: $font--primary;
+  font-weight: $font--weight-x-bold;
+  font-size: $font-size-4;
+  color: $clr--secondary;
+  padding: 0.7rem 2rem;
+  border: transparent;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  border-radius: 0.2rem;
+}
+
+label {
+  font-family: $font--tertiary;
+  font-weight: $font--weight-normal;
+  font-size: $font-size-5;
+  color: $clr--secondary;
+}
+
+@media only screen and (max-width: 576px) {
+  h1 {
+    font-family: $font--secondary;
+    font-weight: $font--weight-x-bold;
+    font-size: $font-size-9;
+  }
+  h2 {
+    font-weight: $font--weight-x-bold;
+    font-size: $font-size-8;
+  }
+  h3 {
+    font-weight: $font--weight-x-bold;
+    font-size: $font-size-8;
+  }
+  h4 {
+    font-weight: $font--weight-medium;
+    font-size: $font-size-6;
+  }
+  h5 {
+    font-weight: $font--weight-medium;
+    font-size: $font-size-5;
+  }
+  h6 {
+    font-weight: $font--weight-bold;
+    font-size: $font-size-5;
+  }
+  p {
+    font-weight: $font--weight-normal;
+    font-size: $font-size-5;
+  }
+}

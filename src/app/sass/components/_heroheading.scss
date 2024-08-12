@@ -1,0 +1,20 @@
+.heading {
+  &__orange {
+    color: $clr--primary;
+  }
+
+  &__white {
+    color: $clr--primary;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .heading {
+    display: flex;
+
+    h1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+.logo {
+  &:hover {
+    cursor: pointer;
+  }
+
+  img {
+    width: max-content;
+    height: max-content;
+  }
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: $clr--secondary; //changethis
+}

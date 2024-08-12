@@ -1,0 +1,80 @@
+{
+  "id": "articles",
+  "type": "SharedSlice",
+  "name": "Articles",
+  "description": "Articles",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "Heading",
+            "placeholder": ""
+          }
+        },
+        "article_card": {
+          "type": "Group",
+          "config": {
+            "label": "Article Card",
+            "repeat": true,
+            "fields": {
+              "btn_title": {
+                "type": "Text",
+                "config": {
+                  "label": "btn title",
+                  "placeholder": ""
+                }
+              },
+              "btn_url": {
+                "type": "Link",
+                "config": {
+                  "label": "btn url",
+                  "placeholder": "",
+                  "select": null
+                }
+              },
+              "cal_img": {
+                "type": "Image",
+                "config": {
+                  "label": "cal img",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "date": {
+                "type": "Text",
+                "config": {
+                  "label": "date",
+                  "placeholder": ""
+                }
+              },
+              "bg_img": {
+                "type": "Image",
+                "config": {
+                  "label": "bg img",
+                  "constraint": {},
+                  "thumbnails": []
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

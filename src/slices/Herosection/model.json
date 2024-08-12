@@ -1,0 +1,99 @@
+{
+  "id": "herosection",
+  "type": "SharedSlice",
+  "name": "Herosection",
+  "description": "Herosection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "bg_img": {
+          "type": "Image",
+          "config": {
+            "label": "bg img",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading": {
+          "type": "Group",
+          "config": {
+            "label": "heading",
+            "repeat": false,
+            "fields": {
+              "first": {
+                "type": "Text",
+                "config": {
+                  "label": "first",
+                  "placeholder": ""
+                }
+              },
+              "second": {
+                "type": "Text",
+                "config": {
+                  "label": "second",
+                  "placeholder": ""
+                }
+              },
+              "reverse": {
+                "type": "Boolean",
+                "config": {
+                  "label": "reverse",
+                  "placeholder_false": "false",
+                  "placeholder_true": "true",
+                  "default_value": false
+                }
+              }
+            }
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "btn": {
+          "type": "Group",
+          "config": {
+            "label": "btn",
+            "repeat": false,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "black_bg": {
+                "type": "Boolean",
+                "config": {
+                  "label": "black_bg",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "url",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

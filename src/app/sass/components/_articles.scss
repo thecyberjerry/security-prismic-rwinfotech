@@ -1,0 +1,26 @@
+.articles {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 0rem;
+  gap: 5rem;
+
+  &__card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  &__heading {
+    text-align: center;
+  }
+
+  @media only screen and (max-width: 992px) {
+
+    &__card {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+  }
+}

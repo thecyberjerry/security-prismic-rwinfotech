@@ -1,0 +1,110 @@
+{
+  "id": "about",
+  "type": "SharedSlice",
+  "name": "About",
+  "description": "About",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "about_img": {
+          "type": "Image",
+          "config": {
+            "label": "about img",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading_icon": {
+          "type": "Image",
+          "config": {
+            "label": "heading icon",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "heading": {
+          "type": "Text",
+          "config": {
+            "label": "heading",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "description",
+            "placeholder": ""
+          }
+        },
+        "lists": {
+          "type": "Group",
+          "config": {
+            "label": "lists",
+            "repeat": true,
+            "fields": {
+              "list_item": {
+                "type": "Text",
+                "config": {
+                  "label": "list item",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        },
+        "btn": {
+          "type": "Group",
+          "config": {
+            "label": "btn",
+            "repeat": false,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "title",
+                  "placeholder": ""
+                }
+              },
+              "black_bg": {
+                "type": "Boolean",
+                "config": {
+                  "label": "black_bg",
+                  "default_value": false,
+                  "placeholder_true": "true",
+                  "placeholder_false": "false"
+                }
+              },
+              "url": {
+                "type": "Link",
+                "config": {
+                  "label": "url",
+                  "placeholder": "",
+                  "select": null
+                }
+              }
+            }
+          }
+        },
+        "direction": {
+          "type": "Select",
+          "config": {
+            "label": "direction",
+            "placeholder": "Select Slice Direction",
+            "options": [
+              "Left",
+              "Right"
+            ],
+            "default_value": "Left"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

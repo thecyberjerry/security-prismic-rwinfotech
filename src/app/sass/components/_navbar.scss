@@ -1,0 +1,137 @@
+%flex-align--center {
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  &__padding {
+    padding-top: 1rem;
+    @extend %flex-align--center;
+    gap: 0.75rem;
+
+    ul {
+      @extend %flex-align--center;
+      gap: 2rem;
+      list-style-type: none;
+      font-family: $font--primary;
+      font-weight: $font--weight-normal;
+      color: $clr--secondary; //change this33
+    }
+  }
+  
+  width: 100%;
+  @extend %flex-align--center;
+  justify-content: space-between;
+
+  &__logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &--open {
+    display: none;
+    color: $clr--secondary;
+    font-size: x-large;
+    cursor: pointer;
+  }
+
+  &--close {
+    display: none;
+    color: $clr--secondary;
+    font-size: xx-large;
+    cursor: pointer;
+  }
+
+  &__list { 
+    ul {
+      li {
+        &::after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 2px;
+          background: $clr--primary;
+          transition: width 0.3s;
+        }
+        &:hover::after {
+          width: 100%;
+        }
+        color: $clr--secondary; //changethis33
+      }
+    }
+  }
+
+  &__phone {
+    @extend %flex-align--center;
+    gap: 0.5rem;
+  }
+
+  &__btn {
+    max-width: max-content;
+  }
+
+  &__toggle {
+    .nav {
+      h6 {
+        color: $clr--secondary-x-dark;
+      }
+
+      ul {
+        color: $clr--secondary-x-dark;
+      }
+
+      &--open {
+        color: $clr--secondary-x-dark;
+      }
+
+      &__list {
+        ul {
+          li {
+            color: $clr--secondary-x-dark;
+            &::after {
+              content: "";
+              display: block;
+              width: 0;
+              height: 2px;
+              background: $clr--primary;
+              transition: width 0.3s;
+            }
+            &:hover::after {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .nav {
+    &__list {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .nav {
+    &__btn {
+      display: none;
+    }
+    ul {
+      display: none;
+    }
+    display: block;
+    &--open {
+      display: block;
+    }
+    &--close {
+      display: block;
+    }
+    &__phone {
+      display: none;
+    }
+  }
+}

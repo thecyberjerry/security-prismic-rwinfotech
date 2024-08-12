@@ -1,0 +1,26 @@
+.testimonials {
+  padding: 4rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+
+  &__heading {
+    display: grid;
+    place-content: center;
+  }
+
+  &__reviews {
+    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .testimonials {
+    &__reviews {
+      justify-content: center;
+    }
+  }
+}

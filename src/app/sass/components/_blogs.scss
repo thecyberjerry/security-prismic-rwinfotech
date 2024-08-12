@@ -1,0 +1,168 @@
+.blogs {
+  padding: 6rem 0rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+
+  &__pagination {
+    margin: 2rem 0rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__chars {
+    font-size: $font-size-8;
+    border-radius: 2rem;
+    background-color: $clr--primary;
+    color: $clr--secondary;
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  }
+
+  &__nmb {
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    align-items: center;
+    h5 {
+      display: flex;
+      justify-content: center;
+      width: 50%;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2rem 0rem;
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+  &__wrapper {
+    border-radius: 1rem;
+    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 0.5rem 0rem;
+    flex: 0 0 auto;
+    width: 31.31313131%;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__highlight {
+    display: flex;
+    justify-content: space-between; 
+    gap:2rem;
+  }
+  &__highlight--hidden {
+    display: none;
+  }
+  &__front {
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    width: 55%;
+  }
+
+  &__recent {
+    width: 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  &__recentblogs {
+    display: flex;
+    margin: 0rem 0rem 2rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  &__recentimg {
+    height: 10rem;
+    img {
+      object-position: center;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  &__content {
+    padding: 5rem 0rem;
+    img {
+      width: 33.333333%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+  &__desc {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .blogs {
+    justify-content: center;
+    &__pagination {
+      flex-direction: column;
+    }
+    &__nmb {
+      flex-direction: column;
+      gap: 3rem;
+    }
+    &__highlight {
+      flex-direction: column;
+    }
+    &__front {
+      width: 100%;
+    }
+    &__recent {
+      width: 100%;
+    }
+    &__recentimg {
+      height: 10rem;
+      img {
+        object-position: top;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+    &__wrapper {
+      border-radius: 1rem;
+      margin: 0.5rem 0rem;
+      flex: 0 0 auto;
+      width: 70%;
+      padding: 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+    &__img {
+      width: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
