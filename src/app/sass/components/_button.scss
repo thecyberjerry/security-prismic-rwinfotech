@@ -8,6 +8,7 @@
       cursor: pointer;
     }
   }
+
   &__default {
     background-color: $clr--primary;
     transition: 0.2s;
@@ -18,4 +19,10 @@
       background-color: $clr--primary-dark;
     }
   }
-} 
+  &--disabled {
+    opacity: 0.5;
+    &:hover {
+      cursor: default;
+    }
+  }
+}

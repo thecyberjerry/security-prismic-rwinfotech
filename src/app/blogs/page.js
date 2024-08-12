@@ -24,7 +24,7 @@ export default function Index() {
       setbtntoggle(true);
       const document = await client
         .getByType("blogpage", {
-          pageSize: 6,
+          pageSize: 3,
           page: counter,
           orderings: {
             field: "document.first_publication_date",
@@ -172,7 +172,7 @@ export default function Index() {
             </div>
           </div>
         </div>
-        <div className="blogs__box ">
+        <div className="blogs__box container">
           <div className="blogs__cards">
             {documents?.results &&
               documents?.results?.map((item, index) => {
@@ -201,7 +201,7 @@ export default function Index() {
                                 <div className="blogs__desc">
                                   <p>
                                     {element.showdesc.length > 100 &&
-                                      element.showdesc + "..."}
+                                      element.showdesc.slice(0, 99) + "..."}
                                   </p>
                                 </div>
                               )}
@@ -219,8 +219,8 @@ export default function Index() {
           </div>
           <div className="blogs__pagination">
             <button
-              disabled={btntoggle ? true : ""}
-              className="btn__default"
+              disabled={btntoggle || documents.page === 1 ? true : ""}
+              className={`${documents.page === 1 ? "btn--disabled" : ""} btn__default`}
               onClick={() => {
                 counter === 1 ? "" : setcounter(counter - 1);
               }}
@@ -235,8 +235,12 @@ export default function Index() {
               <h5>{` ${documents?.page < documents.total_pages ? documents?.page + 1 : ""}`}</h5>
             </div>
             <button
-              disabled={btntoggle ? true : ""}
-              className="btn__default"
+              disabled={
+                btntoggle || documents.page === documents.total_pages
+                  ? true
+                  : ""
+              }
+              className={`${documents.page === documents.total_pages ? "btn--disabled" : ""} btn__default`}
               onClick={() => {
                 counter === documents?.total_pages
                   ? ""

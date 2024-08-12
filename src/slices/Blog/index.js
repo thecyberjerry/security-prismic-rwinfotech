@@ -7,15 +7,15 @@ import { PrismicRichText } from "@prismicio/react";
 const Blog = ({ slice }) => {
   return (
     <section
-      className="container"
+      className="container  "
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <>
+      <div className="blogs__content">
         {slice.primary.content.map((item, index) => {
           return <PrismicRichText key={index} field={item.content} />;
         })}
-      </>
+      </div>
     </section>
   );
 };
