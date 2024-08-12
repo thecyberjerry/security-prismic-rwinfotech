@@ -18,7 +18,7 @@
     color: $clr--secondary;
     box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
   }
-  
+
   &__nmb {
     display: flex;
     width: 30%;
@@ -42,8 +42,6 @@
   }
 
   &__wrapper {
-    border-radius: 1rem;
-    // box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     margin: 0.5rem 0rem;
     flex: 0 0 auto;
     width: 31.31313131%;
@@ -97,6 +95,7 @@
     }
   }
   &__img {
+    height: 50%;
     width: 100%;
     img {
       width: 100%;
@@ -109,6 +108,9 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+  }
+  &__textcontent {
+    height: 50%;
   }
 }
 @media only screen and (max-width: 992px) {
@@ -137,7 +139,6 @@
       }
     }
     &__wrapper {
-      border-radius: 1rem;
       margin: 0.5rem 0rem;
       flex: 0 0 auto;
       width: 70%;

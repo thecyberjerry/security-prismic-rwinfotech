@@ -24,7 +24,7 @@ export default function Index() {
       setbtntoggle(true);
       const document = await client
         .getByType("blogpage", {
-          pageSize: 3,
+          pageSize: 6,
           page: counter,
           orderings: {
             field: "document.first_publication_date",
@@ -194,17 +194,21 @@ export default function Index() {
                                   />
                                 </div>
                               )}
-                              <div className="blogs__heading">
-                                <h4>{element?.heading && element?.heading}</h4>
-                              </div>
-                              {element?.showdesc && (
-                                <div className="blogs__desc">
-                                  <p>
-                                    {element.showdesc.length > 100 &&
-                                      element.showdesc.slice(0, 99) + "..."}
-                                  </p>
+                              <div className="blogs__textcontent">
+                                <div className="blogs__heading">
+                                  <h4>
+                                    {element?.heading && element?.heading}
+                                  </h4>
                                 </div>
-                              )}
+                                {element?.showdesc && (
+                                  <div className="blogs__desc">
+                                    <p>
+                                      {element.showdesc.length > 100 &&
+                                        element.showdesc.slice(0, 99) + "..."}
+                                    </p>
+                                  </div>
+                                )}
+                              </div>
                             </React.Fragment>
                           );
                         })
