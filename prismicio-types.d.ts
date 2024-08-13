@@ -100,6 +100,116 @@ export type BlogsDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<BlogsDocumentData>, "blogs", Lang>;
 
 /**
+ * Item in *Error → btn*
+ */
+export interface ErrorDocumentDataBtnItem {
+  /**
+   * title field in *Error → btn*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.btn[].title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * black_bg field in *Error → btn*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: error.btn[].black_bg
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  black_bg: prismic.BooleanField;
+
+  /**
+   * url field in *Error → btn*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.btn[].url
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  url: prismic.LinkField;
+}
+
+type ErrorDocumentDataSlicesSlice = HerosectionSlice;
+
+/**
+ * Content for Error documents
+ */
+interface ErrorDocumentData {
+  /**
+   * error img field in *Error*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.error_img
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  error_img: prismic.ImageField<never>;
+
+  /**
+   * heading field in *Error*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.heading
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField;
+
+  /**
+   * desc field in *Error*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.desc
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  desc: prismic.KeyTextField;
+
+  /**
+   * btn field in *Error*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.btn[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  btn: prismic.GroupField<Simplify<ErrorDocumentDataBtnItem>>;
+
+  /**
+   * Slice Zone field in *Error*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: error.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<ErrorDocumentDataSlicesSlice>;
+}
+
+/**
+ * Error document from Prismic
+ *
+ * - **API ID**: `error`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type ErrorDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<ErrorDocumentData>, "error", Lang>;
+
+/**
  * Item in *Footer → btn*
  */
 export interface FooterDocumentDataBtnItem {
@@ -489,6 +599,7 @@ export type PageDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | BlogpageDocument
   | BlogsDocument
+  | ErrorDocument
   | FooterDocument
   | NavbarDocument
   | PageDocument;
@@ -1571,6 +1682,10 @@ declare module "@prismicio/client" {
       BlogsDocument,
       BlogsDocumentData,
       BlogsDocumentDataSlicesSlice,
+      ErrorDocument,
+      ErrorDocumentData,
+      ErrorDocumentDataBtnItem,
+      ErrorDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataBtnItem,

@@ -8,7 +8,6 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { GrNext, GrPrevious } from "react-icons/gr";
-
 export default function Index() {
   const client = createClient();
   const [documents, setdocuments] = useState("");
@@ -24,6 +23,9 @@ export default function Index() {
       setbtntoggle(true);
       const document = await client
         .getByType("blogpage", {
+          fetchOptions: {
+            cache: "force-cache",
+          },
           pageSize: 6,
           page: counter,
           orderings: {
@@ -36,6 +38,9 @@ export default function Index() {
       const fetchthree = async () => {
         const latestthree = await client
           .getByType("blogpage", {
+            fetchOptions: {
+              cache: "force-cache",
+            },
             pageSize: 3,
             page: counter,
             orderings: {
@@ -215,7 +220,7 @@ export default function Index() {
                       );
                     })}
                     <Link href={`${path.slice(1, path.length)}/${item.uid}`}>
-                      <h6>Click Here</h6>
+                      <h6>Read More</h6>
                     </Link>
                   </div>
                 );
@@ -232,7 +237,7 @@ export default function Index() {
               <GrPrevious />
             </button>
             <div className="blogs__nmb">
-              <h5>{`${documents?.page && documents?.page > 1 ? documents?.page - 1 : ""}  `}</h5>
+              <h5>{`${documents?.page && documents?.page > 1 ? documents?.page - 1 : ""}`}</h5>
               <h5 className="blogs__chars">
                 {`${documents?.page && documents?.page}`}
               </h5>

@@ -2,20 +2,20 @@ import Image from "next/image";
 import React from "react";
 import Button from "./minicomponents/Button";
 import { PiMagnifyingGlassThin } from "react-icons/pi";
-import Link from "next/link";
+
 export default function Myerror({ errorData }) {
   return (
     <div className="container-fluid error__wrapper">
       {errorData && (
         <div className="container">
           <div className="error">
-            {errorData?.errorImg && (
+            {errorData?.error_img && (
               <div className="error__img">
                 <Image
-                  src={errorData?.errorImg?.src}
+                  src={errorData?.error_img?.url}
                   height={100}
                   width={100}
-                  alt={errorData?.errorImg?.alt}
+                  alt={errorData?.error_img?.alt}
                 />
               </div>
             )}
@@ -26,13 +26,13 @@ export default function Myerror({ errorData }) {
               <div className="error__desc">
                 {errorData?.heading && errorData?.desc && (
                   <>
-                    <h3>{errorData?.heading}</h3>
+                    <h3>{errorData?.heading.map((item) => item?.text)}</h3>
                     <p>{errorData?.desc}</p>
                   </>
                 )}
                 {errorData?.btn && (
                   <div>
-                      <Button btn={errorData?.btn && errorData?.btn} />
+                    {errorData?.btn && <Button btn={errorData?.btn[0]} />}
                   </div>
                 )}
               </div>
