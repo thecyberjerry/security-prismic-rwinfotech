@@ -1,17 +1,15 @@
 .testimonial {
-  img {
-    max-width: 3rem;
-  }
+  flex-basis: 28.282828%;
 
   &__card {
+    border-radius: 1rem;
+    background-color: $clr--slate;
     transition: 0.2s;
-
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.015);
       box-shadow: 0 25px 50px -12px rgba(255, 149, 73, 1);
     }
 
-    box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -19,13 +17,33 @@
     padding: 1.5rem;
   }
 
+  &__icon {
+    width: 12%;
+    img {
+      object-fit: contain;
+    }
+  }
+
   &__user {
     display: flex;
     align-items: center;
     gap: 1rem;
   }
-
-  &__wrapper {
-    max-width: 20.9rem;
+  &__userimg {
+    img {
+      object-fit: contain;
+    }
+  }
+  &__text {
+    p {
+      line-height: 28px;
+      font-size: $font-size-3;
+    }
+  }
+  @media only screen and (max-width: 992px) {
+    flex-basis: 45.454545%;
+  }
+  @media only screen and (max-width: 576px) {
+    flex-basis: 100%;
   }
 }

@@ -8,6 +8,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { GrNext, GrPrevious } from "react-icons/gr";
+import Blogs from "../components/Blogs";
 export default function Index() {
   const client = createClient();
   const [documents, setdocuments] = useState("");
@@ -18,51 +19,42 @@ export default function Index() {
   const [btntoggle, setbtntoggle] = useState(false);
   const router = useRouter();
   const path = usePathname();
+
+  const fetchHero = async () => {
+    const navbar = await client.getSingle("navbar");
+    setnavbar(navbar);
+    const hero = await client.getSingle("blogs");
+    sethero(hero);
+  };
+
+  const fetchme = async (pgsize) => {
+    const data = await client
+      .getByType("blogpage", {
+        pageSize: pgsize || 6,
+        page: counter,
+        orderings: {
+          field: "document.first_publication_date",
+          direction: "desc",
+        },
+      })
+      .catch(() => notFound());
+    pgsize ? setlatestthree(data) : setdocuments(data);
+  };
+
   useEffect(() => {
+    setbtntoggle(true);
+    fetchHero();
+    fetchme();
     const fetchBlogs = async () => {
-      setbtntoggle(true);
-      const document = await client
-        .getByType("blogpage", {
-          fetchOptions: {
-            cache: "force-cache",
-          },
-          pageSize: 6,
-          page: counter,
-          orderings: {
-            field: "document.first_publication_date",
-            direction: "desc",
-          },
-        })
-        .catch(() => notFound());
-      setdocuments(document);
-      const fetchthree = async () => {
-        const latestthree = await client
-          .getByType("blogpage", {
-            fetchOptions: {
-              cache: "force-cache",
-            },
-            pageSize: 3,
-            page: counter,
-            orderings: {
-              field: "document.first_publication_date",
-              direction: "desc",
-            },
-          })
-          .catch(() => notFound());
-        setlatestthree(latestthree.results);
-      };
-      document.page === 1 ? fetchthree() : "";
-      const navbar = await client.getSingle("navbar");
-      setnavbar(navbar);
-      const hero = await client.getSingle("blogs");
-      sethero(hero);
-      document.page > 1
+      documents.page === 1 && fetchme(3);
+      documents.page > 1
         ? router.push(`${path}?page=${counter}`)
         : router.push(`${path}`);
       setbtntoggle(false);
     };
     fetchBlogs();
-  }, [counter]);
+  }, [counter, documents?.page]);
+
   return (
     <div>
       {hero?.data?.slices &&
@@ -114,7 +106,7 @@ export default function Index() {
                 environment.
               </p>
               <div className="blogs__img">
-                <img
+                <Image
                   src={
                     "https://s3-alpha-sig.figma.com/img/4a01/3818/27ceb310e3c2b76d6866891a9cb276c5?Expires=1724630400&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=ToSbpZ8HxCyO5P3YmkLWa5lp32JRY0EuK2~b8POxfbce1w11MwsDuSdQtx~rdw1PgVvaDkuAKgN2hmOz8nu~ON8SbadzpR55h9c6HKeSmpumqlYu4LYjXhcIny8h8Gv~TBdRYjtT0pqfmu3RNY~soMcQDVHUqhRBOI0w4tfFZH2L7vknnkHuMYPEuJGvMskyyz9BFc0UyWpN88L8PwxCVWdidshHWsH1MWRM1rLQ7rT525rrTVC-PF4HDprow22a4LYgftmrR5ddqUMpzNJ9IYpk903quTZg6FmF46vAR0bqn~ogT1AgVBlNicQI97lWr793EhyKy8V0wnNMCp5WBw__"
                     // documents &&
@@ -130,8 +122,8 @@ export default function Index() {
           <div className="blogs__recent">
             <h4>Recent Posts</h4>
             <div className="blogs__recentwrapper">
-              {latestthree &&
-                latestthree?.map((item, index) => {
+              {latestthree?.results &&
+                latestthree?.results?.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
                       {item.data.slices.map((elem, index) => {
@@ -179,52 +171,7 @@ export default function Index() {
         </div>
         <div className="blogs__box container">
           <div className="blogs__cards">
-            {documents?.results &&
-              documents?.results?.map((item, index) => {
-                return (
-                  <div key={index} className="blogs__wrapper">
-                    {item.data.slices.map((elem) => {
-                      return (
-                        elem?.primary?.card_content &&
-                        elem?.primary?.card_content.map((element, index) => {
-                          return (
-                            <React.Fragment key={index}>
-                              {element?.show_img?.url && (
-                                <div className="blogs__img">
-                                  <Image
-                                    priority
-                                    src={element?.show_img?.url}
-                                    width={100}
-                                    height={100}
-                                  />
-                                </div>
-                              )}
-                              <div className="blogs__textcontent">
-                                <div className="blogs__heading">
-                                  <h4>
-                                    {element?.heading && element?.heading}
-                                  </h4>
-                                </div>
-                                {element?.showdesc && (
-                                  <div className="blogs__desc">
-                                    <p>
-                                      {element.showdesc.length > 100 &&
-                                        element.showdesc.slice(0, 99) + "..."}
-                                    </p>
-                                  </div>
-                                )}
-                              </div>
-                            </React.Fragment>
-                          );
-                        })
-                      );
-                    })}
-                    <Link href={`${path.slice(1, path.length)}/${item.uid}`}>
-                      <h6>Read More</h6>
-                    </Link>
-                  </div>
-                );
-              })}
+            <Blogs blogdata={documents} path={path} />
           </div>
           <div className="blogs__pagination">
             <button

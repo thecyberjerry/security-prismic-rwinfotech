@@ -1,23 +1,55 @@
 import Image from "next/image";
 import React from "react";
-
-export default function Blogs() {
-  const src = "https://datawise-rwinfotech.vercel.app/blogs/Thumbnail.svg";
+import Link from "next/link";
+export default function Blogs({ blogdata, path }) {
   return (
-    <div className="blogs container">
-      <div className="blogs__wrapper">
-        <div className="blogs__img">
-          <Image src={src} width={100} height={100} />
-        </div>
-        <div className="blogs__heading">
-          Why Migrate to Headless CMS? Key Reasons to Migrate
-        </div>
-        <div className="blogs__desc">
-          In the era of digitalization, managing an excellent customer
-          experience across multiple platforms is your brand&apos;s top priority. But
-          do you need help to keep up with new trends using traditional CMS?
-        </div>
-      </div>
-    </div>
+    <>
+      {blogdata?.results &&
+        blogdata?.results?.map((item, index) => {
+          return (
+            <div key={index} className="blogs__wrapper">
+              {item.data.slices.map((elem) => {
+                return (
+                  elem?.primary?.card_content &&
+                  elem?.primary?.card_content.map((element, index) => {
+                    return (
+                      <React.Fragment key={index}>
+                        {element?.show_img?.url && (
+                          <div className="blogs__img">
+                            <Image
+                              priority
+                              src={element?.show_img?.url}
+                              width={100}
+                              height={100}
+                            />
+                          </div>
+                        )}
+                        <div className="blogs__textcontent">
+                          <div className="blogs__heading">
+                            <h4>{element?.heading && element?.heading}</h4>
+                          </div>
+                          {element?.showdesc && (
+                            <div className="blogs__desc">
+                              <p>
+                                {element.showdesc.length > 100 &&
+                                  element.showdesc.slice(0, 99) + "..."}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      </React.Fragment>
+                    );
+                  })
+                );
+              })}
+              {path && (
+                <Link href={`${path.slice(1, path.length)}/${item.uid}`}>
+                  <h6>Read More</h6>
+                </Link>
+              )}
+            </div>
+          );
+        })}
+    </>
   );
 }

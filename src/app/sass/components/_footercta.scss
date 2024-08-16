@@ -16,7 +16,7 @@
 
   &__img {
     position: absolute;
-    bottom: 0;
+    bottom: -4px;
     left: 5rem;
     width: auto;
     z-index: 4444;
@@ -53,11 +53,10 @@
 }
 @media only screen and (max-width: 484px) {
   .footercta {
-    margin: 0rem 0rem 5rem;
+    margin: -1rem 0rem 5rem;
     &__img {
       position: static;
       width: 70%;
-      // bottom: 20rem;
       left: 0;
       right: 0;
       z-index: 0;

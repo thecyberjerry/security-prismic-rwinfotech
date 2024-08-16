@@ -1,17 +1,24 @@
 .card {
   transition: 0.2s;
-
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.015);;
     box-shadow: 0 25px 50px -12px rgba(255, 149, 73, 1);
   }
-
+  &__img {
+    width: 20%;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 3rem 0rem;
   background-color: $clr--secondary-dark;
-  max-width: 21.5rem;
+  flex-basis: 32.323232%;
 
   &__textcontent {
     color: $clr--secondary;
@@ -22,5 +29,11 @@
       padding: 0.5rem 0rem;
       font-size: $font-size-3;
     }
+  }
+  @media only screen and (max-width: 992px) {
+    flex-basis: 45.454545%;
+  }
+  @media only screen and (max-width: 576px) {
+    flex-basis: 100%;
   }
 }

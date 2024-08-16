@@ -9,7 +9,7 @@ export default function Information({ informationData }) {
         <div className="container">
           <div
             className={`aboutus  ${
-              informationData.direction === "Right" ? "aboutus__reverse" : ""
+              informationData.direction === "Right" ? "aboutus--reverse" : ""
             }`}
           >
             {informationData?.about_img && (
@@ -37,8 +37,7 @@ export default function Information({ informationData }) {
                 {informationData?.heading && (
                   <h3>{informationData?.heading}</h3>
                 )}
-              </div>
-              &nbsp;
+              </div> 
               {informationData?.description && (
                 <p>{informationData?.description}</p>
               )}
