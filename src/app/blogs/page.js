@@ -143,7 +143,7 @@ export default function Index() {
                                       className="blogs__recentblogs"
                                     >
                                       <div className="blogs__recentimg">
-                                        {/* <Image
+                                        <Image
                                           src={
                                             element?.show_img?.url &&
                                             element?.show_img?.url
@@ -151,7 +151,7 @@ export default function Index() {
                                           alt=""
                                           height={100}
                                           width={100}
-                                        /> */}
+                                        />
                                       </div>
                                       <h5>
                                         {element?.heading && element?.heading}
@@ -169,7 +169,7 @@ export default function Index() {
             </div>
           </div>
         </div>
-        <div className="blogs__box container">
+        <div className="blogs__box">
           <div className="blogs__cards">
             <Blogs blogdata={documents} path={path} />
           </div>

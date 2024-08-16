@@ -16,12 +16,12 @@ export default function Blogs({ blogdata, path }) {
                       <React.Fragment key={index}>
                         {element?.show_img?.url && (
                           <div className="blogs__img">
-                            {/* <Image
+                            <Image
                               priority
                               src={element?.show_img?.url}
                               width={100}
                               height={100}
-                            /> */}
+                            />
                           </div>
                         )}
                         <div className="blogs__textcontent">
